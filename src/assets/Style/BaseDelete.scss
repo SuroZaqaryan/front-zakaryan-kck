@@ -1,0 +1,31 @@
+.delete {
+  position: absolute;
+  background: #FFFFFF;
+  box-shadow: 0 4px 4px rgba(182, 182, 182, 0.25);
+  border-radius: 2px;
+  z-index: 1;
+  left: -4rem;
+  padding: 0 15px;
+  display: none;
+
+  > div {
+    display: flex;
+    align-items: center;
+    opacity: 0.5;
+    transition: 0.2s;
+    &:hover {
+      opacity: 1;
+    }
+
+    img {
+      margin-right: 11px;
+    }
+
+    p {
+      color: #045DA7;
+      font-size: 14px;
+      font-family: 'Roboto Regular';
+      font-weight: 400;
+    }
+  }
+}

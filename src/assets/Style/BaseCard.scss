@@ -1,0 +1,81 @@
+.main-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  .card {
+    flex: 0 0 290px;
+
+    background: #fff;
+    box-shadow: 0 4px 12px #EBEBEB;
+    border-radius: 3px;
+
+    .car-id {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: rgba(237, 232, 245, 0.5);
+
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+
+      .delete {
+        width: 150px;
+        top: 2rem;
+        right: 1rem;
+        left: auto;
+        padding: 14px;
+        box-sizing: border-box;
+      }
+
+      &:hover {
+        .delete {
+          display: block;
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+      color: #000000;
+      font-family: "Roboto Regular";
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  .card-info {
+    padding: 8px 16px;
+  }
+
+  .card-info {
+    margin-top: 8px;
+
+    div {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .card-desc {
+        width: 60%;
+        font-family: 'Roboto Bold';
+        color: #647A8C;
+      }
+
+      .card-res {
+        width: 40%;
+        font-family: 'Roboto Regular';
+        font-weight: 400;
+        word-wrap: break-word;
+      }
+
+      p {
+        margin: 0;
+        line-height: 16px;
+      }
+    }
+  }
+}
+

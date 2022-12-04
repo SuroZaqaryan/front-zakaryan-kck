@@ -1,0 +1,61 @@
+.sort-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  .sort {
+    width: 100%;
+    margin-right: 16px;
+    padding: 16px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px #E7E7E7;
+    border-radius: 3px;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+
+  .title {
+    th {
+      padding: 13px;
+      background: #E6E6E6;
+      font-size: 14px;
+      font-family: 'Roboto Regular';
+    }
+
+    th:not(:last-child) {
+      border-right: 2px solid #fff;
+    }
+  }
+
+  .data {
+    th {
+      padding: 13px;
+      font-size: 14px;
+      font-family: 'Roboto Light';
+    }
+
+    .edit {
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+
+      &:hover {
+        .delete {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #DDD;
+  cursor: context-menu;
+}
+

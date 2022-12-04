@@ -5,6 +5,11 @@
 npm install
 ```
 
+### Run to db
+```
+npm run server
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve

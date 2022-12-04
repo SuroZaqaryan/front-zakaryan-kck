@@ -1,0 +1,29 @@
+.switch-list {
+  display: flex;
+  flex-direction: row;
+
+  img {
+    max-width: 100%;
+    min-width: 15px;
+  }
+
+  .table-switch {
+    border-radius: 0 10px 10px 0;
+  }
+
+  .card-switch {
+    border-radius: 10px 0 0 10px;
+  }
+
+  .table-switch,.card-switch {
+    display: flex;
+    padding: 13px;
+    border: 1px solid #647A8C;
+    cursor: pointer;
+    transition: 0.1s;
+  }
+
+  .active {
+    background: #E5E9EC;
+  }
+}

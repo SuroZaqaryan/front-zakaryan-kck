@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+}
+
+main {
+    max-width: 1440px;
+    margin: auto;
+}
+
+@font-face {
+    font-family: "Roboto Bold";
+    src: local("Roboto"), url("@/assets/Fonts/Roboto-Bold.ttf") format("woff2");
+}
+
+@font-face {
+    font-family: "Roboto Regular";
+    src: local("Roboto"), url("@/assets/Fonts/Roboto-Regular.ttf") format("woff2");
+}
+
+@font-face {
+    font-family: "Roboto Light";
+    src: local("Roboto"), url("@/assets/Fonts/Roboto-Light.ttf") format("woff2");
+}
