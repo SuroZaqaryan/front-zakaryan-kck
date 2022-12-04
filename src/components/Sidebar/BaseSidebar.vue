@@ -22,8 +22,14 @@ export default {
   },
 
   methods: {
+
+
     selectOrderType(e) {
-      this.$store.dispatch('sortOrderType', e.target.value)
+      const z = this.$store.state.TableModule.data.filter(person => {
+        return person.type === e.target.value;
+      });
+
+      this.$store.state.TableModule.data = z;
     }
   }
 }

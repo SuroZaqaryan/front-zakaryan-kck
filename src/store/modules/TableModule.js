@@ -26,10 +26,6 @@ export default {
                 })
                 .catch((err) => console.error(err));
         },
-
-        sortOrderType({commit, getters}, payload) {
-            commit('SORT_ORDER_TYPE', {payload, getters})
-        }
     },
 
     mutations: {
@@ -59,14 +55,6 @@ export default {
                         return b.number.replace(/\D/g, '') - a.number.replace(/\D/g, '');
                 }
             });
-        },
-
-        SORT_ORDER_TYPE(state, {payload, getters}) {
-             getters.data.find((value, idx) => {
-                if(value.type !== payload) {
-                   getters.data.splice(value, idx)
-                }
-            })
         },
 
         DELETE_ITEM(state, payload) {
