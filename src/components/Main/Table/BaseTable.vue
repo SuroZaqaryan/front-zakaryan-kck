@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="table-wrapper">
     <table>
       <tr class="title">
         <th>ID</th>

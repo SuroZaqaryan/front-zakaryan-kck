@@ -15,18 +15,28 @@ export default {
 
 <template>
   <main>
-    <BaseHeader />
-      <div class="wrapper">
-        <Sidebar />
-        <MainPage />
-      </div>
+    <BaseHeader/>
+    <div class="wrapper">
+      <Sidebar/>
+      <MainPage/>
+    </div>
   </main>
 </template>
 
-<style scoped>
-  .wrapper {
-    display: flex;
-    max-width: 1230px;
-    margin: 32px auto;
+<style lang="scss" scoped>
+.wrapper {
+  display: flex;
+  max-width: 1230px;
+  margin: 32px auto;
+
+  @media screen and (max-width: 992px) {
+    flex-wrap: wrap;
+
+    .sidebar {
+      flex-basis: 100%;
+      margin-bottom: 2rem;
+    }
   }
+}
+
 </style>
