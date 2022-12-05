@@ -6,14 +6,10 @@ export default {
 
         form: {
             sort: "", // Сортировка
-            invoiceNumber: "", // Введите фрагмент
-            orderType: [], // Тип заказа
+            invoiceNumber: "", // Номер накладной
+            orderType: [], // Получаем все типы из заказов
+            orderTypeValue: '', // Значение заказа
         },
-
-        sortList: [
-            {id: 1, name: "Номер накладной 1"},
-            {id: 2, name: "Номер накладной 2"},
-        ],
     },
 
     actions: {
@@ -35,17 +31,19 @@ export default {
             state.data = payload;
         },
 
+        // Получаем типы заказов в массив orderType для отоброжение в <select> <option>
         SET_DATA_ORDER(state, payload) {
-            payload.reduce((acc, current) => {
-                if (!acc.find(item => item.type === current.type)) {
+            payload.reduce((value, current) => {
+                if (!value.find(item => item.type === current.type)) {
                     state.form.orderType.push(current.type)
-                    return acc.concat([current]);
+                    return value.concat([current]);
                 } else {
-                    return acc;
+                    return value;
                 }
             }, []);
         },
 
+        // Сортируем массив по номеру накладной
         DATA_SORT(state, payload) {
             state.data.sort(function (a, b) {
                 switch (payload) {
@@ -57,17 +55,51 @@ export default {
             });
         },
 
+        // Удаление элемента
         DELETE_ITEM(state, payload) {
             state.data.splice(payload, 1)
-        }
+        },
     },
 
     getters: {
         getField,
 
-        data(state) {
-            return state.data;
+        // Date
+        padTo2Digits: () => num => num.toString().padStart(2, '0'),
+
+        // Date
+        formatDate: (state, getters) => date => {
+            return (
+                [
+                    getters.padTo2Digits(date.getMonth() + 1),
+                    getters.padTo2Digits(date.getDate()),
+                    date.getFullYear(),
+                ].join('/') +
+                ' ' +
+                [
+                    getters.padTo2Digits(date.getHours()),
+                    getters.padTo2Digits(date.getMinutes()),
+                    getters.padTo2Digits(date.getSeconds()),
+                ].join(':')
+            );
         },
+
+        // Фильтруем дату по типу заказу (по умолчанию пустая строка) и по типу Номера накладного
+        data: (state, getters) => (orderType, invoiceNumber) => state.data.filter(value => {
+
+            // Отоброжение даты в формате dd.mm.yyyy
+            value.creationDate = getters.formatDate(new Date(value.creationDate))
+
+            // Поиск Номер накладной:
+            let search = value.number.toLowerCase().includes(invoiceNumber.toLowerCase());
+
+            if (value.type === orderType) {
+                return value.type === orderType && search
+            } else if (orderType === '') {
+                return value && search
+            }
+
+        }),
 
         orderType(state) {
             return state.form.orderType

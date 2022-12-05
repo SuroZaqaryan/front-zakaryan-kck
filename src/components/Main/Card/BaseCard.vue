@@ -10,7 +10,11 @@ export default {
 
   computed: {
     ...mapGetters(["data"]),
-    ...mapFields(["form.sort", "sortList"]),
+    ...mapFields(["form.sort", "form.orderTypeValue",  "form.invoiceNumber",]),
+
+    data() {
+      return this.$store.getters.data(this.orderTypeValue, this.invoiceNumber);
+    },
   },
 
   mounted() {
@@ -50,9 +54,11 @@ export default {
         </div>
       </div>
     </div>
+
+    <template v-if="!data.length"><p class="data-empty">Нет элементов</p></template>
   </div>
 </template>
 
 <style lang="scss">
-@import "../../../assets/Style/BaseCard.scss";
+@import "@/assets/Style/BaseCard.scss";
 </style>

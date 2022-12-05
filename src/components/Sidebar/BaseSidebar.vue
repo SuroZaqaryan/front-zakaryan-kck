@@ -5,31 +5,12 @@ import {mapGetters} from "vuex";
 export default {
   computed: {
     ...mapGetters(["data"]),
-    ...mapFields(["form.invoiceNumber"]),
-    ...mapFields(["form.orderType"]),
-  },
-
-  mounted() {
-    if (this.data.length) {
-      console.log(this.data)
-    }
-  },
-
-  data() {
-    return {
-      orderTypeValue: ''
-    }
+    ...mapFields(["form.orderType", "form.invoiceNumber", "form.orderTypeValue"])
   },
 
   methods: {
-
-
     selectOrderType(e) {
-      const z = this.$store.state.TableModule.data.filter(person => {
-        return person.type === e.target.value;
-      });
-
-      this.$store.state.TableModule.data = z;
+      this.orderTypeValue = e.target.value;
     }
   }
 }
@@ -44,7 +25,7 @@ export default {
     <div class="sidebar-filter">
       <div>
         <p>Номер накладной:</p>
-        <input placeholder="Введите фрагмент" type="text">
+        <input v-model="invoiceNumber" placeholder="Введите фрагмент" type="text">
       </div>
 
       <div>
@@ -52,6 +33,7 @@ export default {
         <label>
           <select @change="selectOrderType($event)">
             <option disabled selected>Выберите из списка</option>
+            <option value="">По умолчанию</option>
             <option v-for="(opt, idx) in orderType" :value="opt" :key="idx">
               {{ opt }}
             </option>

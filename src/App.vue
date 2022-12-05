@@ -27,6 +27,6 @@ export default {
   .wrapper {
     display: flex;
     max-width: 1230px;
-    margin: auto;
+    margin: 32px auto;
   }
 </style>

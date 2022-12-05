@@ -3,6 +3,12 @@
   flex-wrap: wrap;
   gap: 16px;
 
+  .data-empty {
+    margin: 2rem auto;
+    font-size: 23px;
+    font-family: 'Roboto Regular';
+  }
+
   .card {
     flex: 0 0 290px;
 
